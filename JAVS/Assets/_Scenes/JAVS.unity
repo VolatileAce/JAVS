@@ -287,9 +287,58 @@ Transform:
   - {fileID: 1475726906}
   - {fileID: 255828227}
   - {fileID: 1224040217}
+  - {fileID: 403058544}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403058543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 403058544}
+  - component: {fileID: 403058545}
+  m_Layer: 0
+  m_Name: Lives Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &403058544
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403058543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 0.04, z: 0.264}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398728295}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!131 &403058545
+GUITexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403058543}
+  m_Enabled: 1
+  m_Texture: {fileID: 2800000, guid: 228440a53b6e0d8448b8da1cc28407bd, type: 3}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_PixelInset:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  m_LeftBorder: 0
+  m_RightBorder: 0
+  m_TopBorder: 0
+  m_BottomBorder: 0
 --- !u!1 &467105136
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,10 +875,10 @@ MonoBehaviour:
   - {fileID: 1479453219215218, guid: d80ebf6e6d582864c8152c4f300f3512, type: 2}
   - {fileID: 1188436652856442, guid: 568465a65d937e446aeda0ef97faea6a, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
-  hazardCount: 3
-  spawnWait: 1.5
+  hazardCount: 5
+  spawnWait: 1
   startWait: 3
-  waveWait: 2
+  waveWait: 1.5
   scoreText: {fileID: 1475726905}
   restartText: {fileID: 255828228}
   gameOverText: {fileID: 1224040218}
