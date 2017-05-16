@@ -826,8 +826,8 @@ MonoBehaviour:
   - {fileID: 1479453219215218, guid: d80ebf6e6d582864c8152c4f300f3512, type: 2}
   - {fileID: 1188436652856442, guid: 568465a65d937e446aeda0ef97faea6a, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
-  hazardCount: 10
-  spawnWait: 1
+  hazardCount: 3
+  spawnWait: 1.5
   startWait: 3
   waveWait: 2
   scoreText: {fileID: 1475726905}

@@ -31,7 +31,8 @@ public class EnemyAI : MonoBehaviour {
 
 	void Fire () {
 		
-		Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+		GameObject GO = Instantiate (shot, shotSpawn.position, Quaternion.identity) as GameObject;
+		GO.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 	}
 
 	IEnumerator Evade () {

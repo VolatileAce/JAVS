@@ -159,12 +159,12 @@ MonoBehaviour:
     zMax: 20
   shot: {fileID: 1004035054863950, guid: 97224d05cd3488a4baa597e36c0de978, type: 2}
   shotSpawn: {fileID: 4401333020461252}
-  fireRate: 3
+  fireRate: 2
   bulletSpeed: -10
   delay: 0.5
   tilt: 5
   dodge: 5
-  smoothing: 0
+  smoothing: 10
   startWait: {x: 0.5, y: 1}
   maneuverTime: {x: 1, y: 2}
   maneuverWait: {x: 1, y: 2}
