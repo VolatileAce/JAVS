@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 136020442999169406}
   - component: {fileID: 114592626978498436}
   - component: {fileID: 114822343288505958}
+  - component: {fileID: 114949089636048688}
   m_Layer: 0
   m_Name: Hazard
   m_TagString: Enemy
@@ -122,8 +123,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
-  health: 20
+  health: 30
   scoreValue: 10
+  damageToGive: 0
+--- !u!114 &114949089636048688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479453219215218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d83cbf1994c4ca45b85615e0e873edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToGive: 20
 --- !u!136 &136020442999169406
 CapsuleCollider:
   m_ObjectHideFlags: 1

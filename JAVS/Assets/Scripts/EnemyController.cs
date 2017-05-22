@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour {
 	public int scoreValue;
 
 	private int currentHealth;
+	public int damageToGive;
 
 	private GameController gameController;
 
@@ -45,8 +46,7 @@ public class EnemyController : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") {
 
-			gameController.GameOver ();
-			Destroy (gameObject);
+			Destroy(gameObject);
 		}
 		if (other.gameObject.tag == "Bullet") {
 
