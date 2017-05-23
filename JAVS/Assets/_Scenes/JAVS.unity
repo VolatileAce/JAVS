@@ -92,6 +92,58 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &214232451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 214232452}
+  - component: {fileID: 214232453}
+  m_Layer: 0
+  m_Name: HealthText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214232452
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214232451}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 398728295}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!132 &214232453
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214232451}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Health Text
+  m_Anchor: 8
+  m_Alignment: 2
+  m_PixelOffset: {x: -10, y: 10}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 30
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &254721537
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +339,7 @@ Transform:
   - {fileID: 1475726906}
   - {fileID: 255828227}
   - {fileID: 1224040217}
+  - {fileID: 214232452}
   - {fileID: 1512581214}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -653,9 +706,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2bf37031b90838469845636ec81a586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  startingHealth: 30
   startingLives: 3
   lifeText: {fileID: 1460324140}
+  healthText: {fileID: 214232453}
   startingRotation: {x: 0, y: 0, z: 0, w: 0}
   startingPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1019189194
@@ -672,6 +726,7 @@ MonoBehaviour:
   bulletSpeed: 16
   fireRate: 0.3
   shot: {fileID: 1079193709819496, guid: 4cb0341efeb3e6c4aa8713976ec26bc9, type: 2}
+  shot2: {fileID: 1834526990530764, guid: bd63bf91025945a44877d96a62a6b83d, type: 2}
   shotSpawn: {fileID: 254721538}
 --- !u!1 &1206587065
 GameObject:
@@ -855,7 +910,7 @@ GUIText:
   m_GameObject: {fileID: 1460324137}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: x 1
+  m_Text: x 3
   m_Anchor: 6
   m_Alignment: 0
   m_PixelOffset: {x: 50, y: 15}
@@ -954,6 +1009,7 @@ MonoBehaviour:
   hazards:
   - {fileID: 1479453219215218, guid: d80ebf6e6d582864c8152c4f300f3512, type: 2}
   - {fileID: 1188436652856442, guid: 568465a65d937e446aeda0ef97faea6a, type: 2}
+  - {fileID: 1048074327712382, guid: 94fccd771126d0141ae53e402d7a1164, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 5
   spawnWait: 1
@@ -1003,7 +1059,7 @@ Transform:
   - {fileID: 403058544}
   - {fileID: 1460324138}
   m_Father: {fileID: 398728295}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1527954722
 GameObject:

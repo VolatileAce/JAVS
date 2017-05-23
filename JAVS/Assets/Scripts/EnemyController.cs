@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour {
 	public int scoreValue;
 
 	private int currentHealth;
-	public int damageToGive;
+	private int damageToGive;
 
 	private GameController gameController;
 

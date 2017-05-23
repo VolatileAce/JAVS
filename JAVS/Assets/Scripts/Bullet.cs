@@ -17,5 +17,9 @@ public class Bullet : MonoBehaviour {
 
 			return;
 		}
+		if (other.gameObject.tag == "Bullet") {
+
+			return;
+		}
 	}
 }

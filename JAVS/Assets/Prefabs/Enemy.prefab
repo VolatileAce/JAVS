@@ -142,7 +142,6 @@ MonoBehaviour:
   speed: -5
   health: 20
   scoreValue: 20
-  damageToGive: 0
 --- !u!114 &114697139503238152
 MonoBehaviour:
   m_ObjectHideFlags: 1
