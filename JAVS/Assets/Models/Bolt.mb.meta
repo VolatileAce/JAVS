@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4702e5f3ba0fdb2408d61bc8b5f0c9cc
-timeCreated: 1494893645
+guid: 1bec9b369ead9f34d8272eb486c3b00c
+timeCreated: 1494918274
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Enemy
+    4300000: Bolt
     9500000: //RootNode
   materials:
     importMaterials: 1
