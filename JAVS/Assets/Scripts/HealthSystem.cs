@@ -15,11 +15,13 @@ public class HealthSystem : MonoBehaviour {
 
 	private GameController gameController;
 	private LifeManager lifeSystem;
+	private WeaponSystem weaponSystem;
 
 	public Quaternion startingRotation;
 	public Vector3 startingPosition;
 
-	private bool invincible = false;
+	[HideInInspector]
+	public bool invincible = false;
 
 	void Start () {
 
@@ -60,9 +62,11 @@ public class HealthSystem : MonoBehaviour {
 
 				ResetPlayer ();
 
+				gameObject.GetComponent <WeaponSystem> ().ResetWeapons ();
+
 				TakeLife ();
 
-//				EngageInv ();
+				EngageInv ();
 
 			} else {
 				
@@ -72,28 +76,17 @@ public class HealthSystem : MonoBehaviour {
 		}
 	}
 
-//	void OnTriggerEnter (Collider other) {
-
-//		if (other.gameObject.tag == "Boundary") {
-
-//			Debug.Log ("ITS WORKING!!!!");
-
-//			return;
-//		}
-
-//		if (other.gameObject.tag == "Enemy") {
-
-//			Debug.Log ("IT WORKS!!!!");
-
-//			invincible = false;
-//		}
-//	}
-
 	public void HurtPlayer (int damageAmount) {
 
 		if (invincible == false) {
-			
+
+			gameObject.GetComponent <WeaponSystem> ().TakeUpgrade ();
 			currentHealth -= damageAmount;
+
+		} else { 
+
+			invincible = false;
+//			return;
 		}
 	}
 
@@ -111,11 +104,11 @@ public class HealthSystem : MonoBehaviour {
 
 		transform.position = startingPosition;
 		transform.rotation = startingRotation;
-//		GetComponent <Rigidbody> ().angularVelocity = Vector3.zero;
-//		GetComponent <Rigidbody> ().velocity = Vector3.zero;
+		GetComponent <Rigidbody> ().angularVelocity = Vector3.zero;
+		GetComponent <Rigidbody> ().velocity = Vector3.zero;
 	}
 
-	void ResetHealth () {
+	public void ResetHealth () {
 		
 		currentHealth = 50;
 	}

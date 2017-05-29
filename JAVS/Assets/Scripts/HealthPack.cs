@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Upgrade : MonoBehaviour {
+public class HealthPack : MonoBehaviour {
 
 	public int scoreValue;
 
@@ -22,7 +22,7 @@ public class Upgrade : MonoBehaviour {
 
 		if (other.gameObject.tag == "Player") {
 
-			other.gameObject.GetComponent <WeaponSystem> ().GiveUpgrade ();
+			other.gameObject.GetComponent <HealthSystem> ().ResetHealth ();
 			gameController.AddScore (scoreValue);
 			Destroy (gameObject);
 		}

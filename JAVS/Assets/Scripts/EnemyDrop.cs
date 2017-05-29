@@ -6,14 +6,14 @@ public class EnemyDrop : MonoBehaviour {
 
 	private int speed = -3;
 
-	public GameObject upgrade;
+	public List <GameObject> upgrades = new List<GameObject> ();
 	public Transform dropPoint;
 
 	void OnTriggerEnter (Collider other) {
 
 		if (other.gameObject.tag == "Bullet") {
 
-			GameObject GO = Instantiate (upgrade, dropPoint.position, Quaternion.identity) as GameObject;
+			GameObject GO = Instantiate (upgrades [Random.Range (0, upgrades.Count)], dropPoint.position, Quaternion.identity);
 			GO.GetComponent<Rigidbody> ().AddForce (dropPoint.transform.forward * speed, ForceMode.Impulse);
 		} else {
 

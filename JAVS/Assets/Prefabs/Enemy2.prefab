@@ -169,7 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f86292d3cdf14b40a062575bd55cab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrade: {fileID: 1511952531776926, guid: 341f285f1f9809240949bdbb646e7b17, type: 2}
+  upgrades:
+  - {fileID: 1511952531776926, guid: 341f285f1f9809240949bdbb646e7b17, type: 2}
+  - {fileID: 1649454517616488, guid: 2083ebffec9ed2646adf3e18c92ac4ee, type: 2}
   dropPoint: {fileID: 4889997733619896}
 --- !u!114 &114188652564168774
 MonoBehaviour:
@@ -189,7 +191,7 @@ MonoBehaviour:
     zMax: 25
   shot: {fileID: 1560075334501010, guid: a2510a9c995ed9a47a8b8f9f82a83a1d, type: 2}
   shotSpawn: {fileID: 4723523271107168}
-  fireRate: 1.5
+  fireRate: 11
   bulletSpeed: -15
   delay: 0.5
   tilt: 5
@@ -221,8 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4c8e43dab52314c9715525ea7c3d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5
-  health: 10
+  speed: -10
+  health: 1
   scoreValue: 15
 --- !u!135 &135291074169175086
 SphereCollider:

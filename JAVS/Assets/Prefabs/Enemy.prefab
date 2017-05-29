@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4c8e43dab52314c9715525ea7c3d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5
+  speed: -7
   health: 20
   scoreValue: 20
 --- !u!114 &114697139503238152
@@ -172,8 +172,8 @@ MonoBehaviour:
     zMax: 20
   shot: {fileID: 1004035054863950, guid: 97224d05cd3488a4baa597e36c0de978, type: 2}
   shotSpawn: {fileID: 4401333020461252}
-  fireRate: 2
-  bulletSpeed: -10
+  fireRate: 1.5
+  bulletSpeed: -15
   delay: 0.5
   tilt: 5
   dodge: 5
