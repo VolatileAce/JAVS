@@ -18,10 +18,14 @@ public class WeaponSystem : MonoBehaviour {
 	public int weaponUpgrades;
 	public int smartBombs;
 
+	public GUIText bombText;
+
 	private int maxBombs = 3;
 	private int maxUpgrades = 5;
 
 	void Update () {
+
+		bombText.text = "x " + smartBombs;
 
 		if (smartBombs > maxBombs) { 
 
@@ -29,10 +33,15 @@ public class WeaponSystem : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.LeftControl)) {
-			
-			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-			foreach(GameObject enemy in enemies)
-				GameObject.Destroy(enemy);
+
+			if (smartBombs > 0) {
+
+
+				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+				foreach (GameObject enemy in enemies)
+					GameObject.Destroy (enemy);
+				TakeBomb ();
+			}
 		}			
 
 		if (weaponUpgrades > maxUpgrades) {

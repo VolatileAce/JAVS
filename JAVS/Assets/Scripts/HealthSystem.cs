@@ -25,6 +25,8 @@ public class HealthSystem : MonoBehaviour {
 
 	void Start () {
 
+		gameObject.GetComponent<Renderer> ().material.color = Color.grey;
+
 		lifeCounter = startingLives;
 
 		currentHealth = startingHealth;
@@ -86,6 +88,7 @@ public class HealthSystem : MonoBehaviour {
 		} else { 
 
 			invincible = false;
+			gameObject.GetComponent<Renderer> ().material.color = Color.grey;
 //			return;
 		}
 	}
@@ -114,7 +117,8 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void EngageInv () {
-		
+
+		gameObject.GetComponent<Renderer> ().material.color = Color.clear;
 		invincible = true;
 	}
 }
