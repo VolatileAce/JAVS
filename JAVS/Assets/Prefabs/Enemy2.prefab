@@ -172,6 +172,8 @@ MonoBehaviour:
   upgrades:
   - {fileID: 1511952531776926, guid: 341f285f1f9809240949bdbb646e7b17, type: 2}
   - {fileID: 1649454517616488, guid: 2083ebffec9ed2646adf3e18c92ac4ee, type: 2}
+  - {fileID: 1978264960885352, guid: 19c8b343846b11c43ae86f39f7647d73, type: 2}
+  - {fileID: 1381466727734560, guid: 333a2be5744ec41468752d57efe39eb5, type: 2}
   dropPoint: {fileID: 4889997733619896}
 --- !u!114 &114188652564168774
 MonoBehaviour:

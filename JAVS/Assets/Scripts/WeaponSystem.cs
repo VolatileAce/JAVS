@@ -52,8 +52,11 @@ public class WeaponSystem : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space) && Time.time > nextFire) {
 
 			nextFire = Time.time + fireRate;
-			GameObject GO = Instantiate (shot, shotSpawn.position, Quaternion.identity) as GameObject;
-			GO.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
+			
+			if (weaponUpgrades <= 1) {
+				GameObject GO = Instantiate (shot, shotSpawn.position, Quaternion.identity) as GameObject;
+				GO.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
+			}
 
 			if (weaponUpgrades >= 2) {
 //				nextFire = Time.time + fireRate;

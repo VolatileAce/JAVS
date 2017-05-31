@@ -486,7 +486,7 @@ MonoBehaviour:
   bulletSpeed: 16
   fireRate: 0.3
   shot: {fileID: 1079193709819496, guid: 4cb0341efeb3e6c4aa8713976ec26bc9, type: 2}
-  shot2: {fileID: 1834526990530764, guid: bd63bf91025945a44877d96a62a6b83d, type: 2}
+  shot2: {fileID: 1937047433335742, guid: bd63bf91025945a44877d96a62a6b83d, type: 2}
   shotSpawn: {fileID: 1260682155}
   shotSpawnL: {fileID: 635558701}
   shotSpawnR: {fileID: 1434752000}

@@ -55,7 +55,9 @@ public class HealthSystem : MonoBehaviour {
 		if (currentHealth > startingHealth) {
 			currentHealth = startingHealth;
 		}
-
+		if (lifeCounter > startingLives) {
+			lifeCounter = startingLives;
+		}
 		if (currentHealth <= 0) {
 
 			if (lifeCounter >= 1) {
@@ -118,7 +120,7 @@ public class HealthSystem : MonoBehaviour {
 
 	void EngageInv () {
 
-		gameObject.GetComponent<Renderer> ().material.color = Color.clear;
+		gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
 		invincible = true;
 	}
 }

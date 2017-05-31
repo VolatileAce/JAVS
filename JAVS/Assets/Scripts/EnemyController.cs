@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Update () {
+		
 		if(currentHealth <= 0) {
 
 			gameController.AddScore (scoreValue);
@@ -42,16 +43,19 @@ public class EnemyController : MonoBehaviour {
 
 		currentHealth -= damage;
 	}
+
 	void OnTriggerEnter (Collider other) {
 
 		if (other.gameObject.tag == "Player") {
 
 			Destroy(gameObject);
 		}
+
 		if (other.gameObject.tag == "Bullet") {
 
 			return;
 		}
+
 		if (other.gameObject.tag == "Boundary") {
 
 			return;
