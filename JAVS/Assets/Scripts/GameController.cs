@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -11,13 +12,13 @@ public class GameController : MonoBehaviour {
 	public float startWait;
 	public float waveWait;
 
-	public GUIText scoreText;
+	public Text scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
 
 	private bool gameOver;
 	private bool restart;
-	private int score;
+	public static int score;
 
 	void Start () {
 		
@@ -30,7 +31,7 @@ public class GameController : MonoBehaviour {
 		StartCoroutine (SpawnWaves ());
 	}
 	void Update () {
-
+		//restarts the game
 		if (restart) {
 
 			if (Input.GetKeyDown (KeyCode.R)) {
@@ -39,7 +40,7 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
-
+	//determines randomly which enemies will spawn
 	IEnumerator SpawnWaves ()
 	{
 		yield return new WaitForSeconds (startWait);
@@ -63,7 +64,7 @@ public class GameController : MonoBehaviour {
 			}
 		}
 	}
-
+	//adds to the players score
 	public void AddScore (int newScoreValue) {
 
 		score += newScoreValue;

@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: -7
   health: 20
-  scoreValue: 20
+  scoreValue: 30
 --- !u!114 &114697139503238152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
   shot: {fileID: 1004035054863950, guid: 97224d05cd3488a4baa597e36c0de978, type: 2}
   shotSpawn: {fileID: 4401333020461252}
   fireRate: 1.5
-  bulletSpeed: -15
+  bulletSpeed: -10
   delay: 0.5
   tilt: 5
   dodge: 5

@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 	public Boundary boundary;
 
 	void FixedUpdate () {
+		//allows the player to move on the x and z axis (vertically and horizontally, in top down) using either WSAD or the arrow keys
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		float moveVertical = Input.GetAxis ("Vertical");
 

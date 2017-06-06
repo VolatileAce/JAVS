@@ -31,14 +31,14 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void Update () {
-		
+		//determines death for the enemies
 		if(currentHealth <= 0) {
 
 			gameController.AddScore (scoreValue);
 			Destroy(gameObject);
 		}
 	}
-
+	//subtracts the amount of damage the player deals from the enemies
 	public void HurtEnemy(int damage) {
 
 		currentHealth -= damage;

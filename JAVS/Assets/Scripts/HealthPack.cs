@@ -21,7 +21,7 @@ public class HealthPack : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 
 		if (other.gameObject.tag == "Player") {
-
+			//restores the players health to full on pick up
 			other.gameObject.GetComponent <HealthSystem> ().ResetHealth ();
 			gameController.AddScore (scoreValue);
 			Destroy (gameObject);

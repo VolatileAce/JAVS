@@ -30,13 +30,13 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void Fire () {
-		
+		//enemies shoot back at player
 		GameObject GO = Instantiate (shot, shotSpawn.position, Quaternion.identity) as GameObject;
 		GO.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 	}
 
 	IEnumerator Evade () {
-		
+		//enemies wait enough time in order to bank left or right into the player
 		yield return new WaitForSeconds (Random.Range (startWait.x, startWait.y));
 		while (true) {
 			
@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour {
 			yield return new WaitForSeconds (Random.Range (maneuverWait.x, maneuverWait.y));
 		}
 	}
-
+	//if the player moves to the other side of the enemy, the enemy resumes flying straight
 	void FixedUpdate () {
 		float newManeuver = Mathf.MoveTowards (GetComponent<Rigidbody>().velocity.x, targetManeuver, smoothing * Time.deltaTime);
 		GetComponent<Rigidbody>().velocity = new Vector3 (newManeuver, 0.0f, currentSpeed);

@@ -19,7 +19,7 @@ public class ExtraBomb : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-
+		//gives the player and extra smart bomb on pick up
 		if (other.gameObject.tag == "Player") {
 
 			other.gameObject.GetComponent <WeaponSystem> ().GiveBomb ();

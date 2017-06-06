@@ -193,8 +193,8 @@ MonoBehaviour:
     zMax: 25
   shot: {fileID: 1560075334501010, guid: a2510a9c995ed9a47a8b8f9f82a83a1d, type: 2}
   shotSpawn: {fileID: 4723523271107168}
-  fireRate: 11
-  bulletSpeed: -15
+  fireRate: 2
+  bulletSpeed: -13
   delay: 0.5
   tilt: 5
   dodge: 10

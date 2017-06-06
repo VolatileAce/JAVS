@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour {
 
@@ -10,8 +11,9 @@ public class HealthSystem : MonoBehaviour {
 	private int lifeCounter;
 	private int currentHealth;
 
-	public GUIText lifeText;
-	public GUIText healthText;
+	public Text scoreText;
+	public Text lifeText;
+	public Text healthText;
 
 	private GameController gameController;
 	private LifeManager lifeSystem;
@@ -52,12 +54,15 @@ public class HealthSystem : MonoBehaviour {
 		lifeText.text = "x " + lifeCounter;
 		healthText.text = "Health: " + currentHealth;
 
+		//caps the player to a maximum amount of health
 		if (currentHealth > startingHealth) {
 			currentHealth = startingHealth;
 		}
+		//caps the player to maximum amount of lives
 		if (lifeCounter > startingLives) {
 			lifeCounter = startingLives;
 		}
+		//determines the players death, and if they respawn
 		if (currentHealth <= 0) {
 
 			if (lifeCounter >= 1) {
@@ -91,7 +96,6 @@ public class HealthSystem : MonoBehaviour {
 
 			invincible = false;
 			gameObject.GetComponent<Renderer> ().material.color = Color.grey;
-//			return;
 		}
 	}
 
@@ -114,12 +118,12 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	public void ResetHealth () {
-		
+		//resets the players health, either on respawn or on health pack pick up
 		currentHealth = 50;
 	}
 
 	void EngageInv () {
-
+		//makes the player temporarily invulnerable
 		gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
 		invincible = true;
 	}

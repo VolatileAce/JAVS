@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSystem : MonoBehaviour {
 	
@@ -18,7 +19,7 @@ public class WeaponSystem : MonoBehaviour {
 	public int weaponUpgrades;
 	public int smartBombs;
 
-	public GUIText bombText;
+	public Text bombText;
 
 	private int maxBombs = 3;
 	private int maxUpgrades = 5;
@@ -26,12 +27,12 @@ public class WeaponSystem : MonoBehaviour {
 	void Update () {
 
 		bombText.text = "x " + smartBombs;
-
+		//limits the player to a maximum amount of smart bombs
 		if (smartBombs > maxBombs) { 
 
 			smartBombs = maxBombs;
 		}
-
+		//destroys all enemies on screen
 		if (Input.GetKeyDown (KeyCode.LeftControl)) {
 
 			if (smartBombs > 0) {
@@ -43,7 +44,7 @@ public class WeaponSystem : MonoBehaviour {
 				TakeBomb ();
 			}
 		}			
-
+		//caps the maximum amount of upgrades
 		if (weaponUpgrades > maxUpgrades) {
 
 			weaponUpgrades = maxUpgrades;
@@ -52,18 +53,19 @@ public class WeaponSystem : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space) && Time.time > nextFire) {
 
 			nextFire = Time.time + fireRate;
-			
+
+			//Fire basic weapons
 			if (weaponUpgrades <= 1) {
 				GameObject GO = Instantiate (shot, shotSpawn.position, Quaternion.identity) as GameObject;
 				GO.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 			}
-
-			if (weaponUpgrades >= 2) {
-//				nextFire = Time.time + fireRate;
+			//fires weapons with 1st upgrade (straight)
+			if (weaponUpgrades >= 1) {
 				GameObject GO2 = Instantiate (shot2, shotSpawn.position, Quaternion.identity) as GameObject;
 				GO2.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 			}
-			if (weaponUpgrades >= 5) {
+			//fires weapons with 2nd upgrade (on angles)
+			if (weaponUpgrades >= 4) {
 				GameObject GO3 = Instantiate (shot, shotSpawnL.position, transform.rotation) as GameObject;
 				GO3.GetComponent<Rigidbody> ().AddForce (shotSpawnL.transform.forward * bulletSpeed, ForceMode.Impulse);
 				GameObject GO4 = Instantiate (shot, shotSpawnR.position, transform.rotation) as GameObject;

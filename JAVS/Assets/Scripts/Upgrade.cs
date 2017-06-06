@@ -20,6 +20,7 @@ public class Upgrade : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 
+		//gives the player a weapon upgrade on pick
 		if (other.gameObject.tag == "Player") {
 
 			other.gameObject.GetComponent <WeaponSystem> ().GiveUpgrade ();
