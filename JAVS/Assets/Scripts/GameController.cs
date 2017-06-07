@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour {
 	public float startWait;
 	public float waveWait;
 
+	public int realHazardCount;
+	public float realSpawnWait;
+
 	public Text scoreText;
 	public GUIText restartText;
 	public GUIText gameOverText;
@@ -20,8 +23,12 @@ public class GameController : MonoBehaviour {
 	private bool restart;
 	public static int score;
 
+	public GameObject weaponSystem;
+
 	void Start () {
-		
+
+		weaponSystem = GameObject.FindGameObjectWithTag ("Player");
+
 		gameOver = false;
 		restart = false;
 		restartText.text = "";
@@ -31,6 +38,12 @@ public class GameController : MonoBehaviour {
 		StartCoroutine (SpawnWaves ());
 	}
 	void Update () {
+		if (weaponSystem != null) {
+			
+			realHazardCount = hazardCount * weaponSystem.GetComponent<WeaponSystem> ().weaponUpgrades;
+			realSpawnWait = spawnWait / weaponSystem.GetComponent<WeaponSystem> ().weaponUpgrades;
+		}
+
 		//restarts the game
 		if (restart) {
 
@@ -46,7 +59,7 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds (startWait);
 		while (true)
 		{
-			for (int i = 0; i < hazardCount; i++) {
+			for (int i = 0; i < realHazardCount; i++) {
 				
 				GameObject hazard = hazards [Random.Range (0, hazards.Length)];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);

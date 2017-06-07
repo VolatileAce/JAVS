@@ -16,7 +16,7 @@ public class WeaponSystem : MonoBehaviour {
 
 	private float nextFire;
 
-	public int weaponUpgrades;
+	public int weaponUpgrades = 1;
 	public int smartBombs;
 
 	public Text bombText;
@@ -24,7 +24,21 @@ public class WeaponSystem : MonoBehaviour {
 	private int maxBombs = 3;
 	private int maxUpgrades = 5;
 
+	private float upgradeTime = 10;
+	private float timePassed;
+
 	void Update () {
+
+		if (weaponUpgrades >= 5) {
+
+			timePassed += Time.deltaTime;
+
+			if (timePassed > upgradeTime) {
+
+				timePassed = 0;
+				weaponUpgrades = 2;
+			}
+		}
 
 		bombText.text = "x " + smartBombs;
 		//limits the player to a maximum amount of smart bombs
@@ -49,23 +63,26 @@ public class WeaponSystem : MonoBehaviour {
 
 			weaponUpgrades = maxUpgrades;
 		}
+		if (weaponUpgrades < 1) {
+			weaponUpgrades = 1;
+		}
 
 		if (Input.GetKey (KeyCode.Space) && Time.time > nextFire) {
 
 			nextFire = Time.time + fireRate;
 
 			//Fire basic weapons
-			if (weaponUpgrades <= 1) {
+			if (weaponUpgrades == 1) {
 				GameObject GO = Instantiate (shot, shotSpawn.position, Quaternion.identity) as GameObject;
 				GO.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 			}
 			//fires weapons with 1st upgrade (straight)
-			if (weaponUpgrades >= 1) {
+			if (weaponUpgrades >= 2) {
 				GameObject GO2 = Instantiate (shot2, shotSpawn.position, Quaternion.identity) as GameObject;
 				GO2.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 			}
 			//fires weapons with 2nd upgrade (on angles)
-			if (weaponUpgrades >= 4) {
+			if (weaponUpgrades == 5) {
 				GameObject GO3 = Instantiate (shot, shotSpawnL.position, transform.rotation) as GameObject;
 				GO3.GetComponent<Rigidbody> ().AddForce (shotSpawnL.transform.forward * bulletSpeed, ForceMode.Impulse);
 				GameObject GO4 = Instantiate (shot, shotSpawnR.position, transform.rotation) as GameObject;

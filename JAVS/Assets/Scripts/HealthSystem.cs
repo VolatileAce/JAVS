@@ -25,6 +25,9 @@ public class HealthSystem : MonoBehaviour {
 	[HideInInspector]
 	public bool invincible = false;
 
+	private float invTime = 3;
+	private float timePassed;
+
 	void Start () {
 
 		gameObject.GetComponent<Renderer> ().material.color = Color.grey;
@@ -50,6 +53,14 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void Update () {
+
+		timePassed += Time.deltaTime;
+		if (timePassed > invTime) {
+
+			timePassed = 0;
+			invincible = false;
+			gameObject.GetComponent<Renderer> ().material.color = Color.grey;
+		}
 		
 		lifeText.text = "x " + lifeCounter;
 		healthText.text = "Health: " + currentHealth;
@@ -86,16 +97,11 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	public void HurtPlayer (int damageAmount) {
-
+		//	damage dealt to player (if vulnerable)
 		if (invincible == false) {
 
 			gameObject.GetComponent <WeaponSystem> ().TakeUpgrade ();
 			currentHealth -= damageAmount;
-
-		} else { 
-
-			invincible = false;
-			gameObject.GetComponent<Renderer> ().material.color = Color.grey;
 		}
 	}
 
@@ -110,7 +116,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void ResetPlayer () {
-
+		//resets the players position on respawn
 		transform.position = startingPosition;
 		transform.rotation = startingRotation;
 		GetComponent <Rigidbody> ().angularVelocity = Vector3.zero;
@@ -119,12 +125,16 @@ public class HealthSystem : MonoBehaviour {
 
 	public void ResetHealth () {
 		//resets the players health, either on respawn or on health pack pick up
-		currentHealth = 50;
+		if (currentHealth < startingHealth) {
+			currentHealth = 30;
+		}
 	}
 
 	void EngageInv () {
 		//makes the player temporarily invulnerable
-		gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
 		invincible = true;
+		timePassed = 0;
+		gameObject.GetComponent<Renderer> ().material.color = Color.yellow;
+
 	}
 }
