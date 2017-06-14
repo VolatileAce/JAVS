@@ -29,7 +29,7 @@ public class HealthSystem : MonoBehaviour {
 	private float timePassed;
 
 	void Start () {
-
+		//changes the player to its starting color
 		gameObject.GetComponent<Renderer> ().material.color = Color.grey;
 
 		lifeCounter = startingLives;
@@ -38,14 +38,14 @@ public class HealthSystem : MonoBehaviour {
 
 		startingRotation = transform.rotation;
 		startingPosition = transform.position;
-
+		//finds the game controller
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-
+		//forcefully grabs the game controller if it can't find it
 		if (gameControllerObject != null) {
 
 			gameController = gameControllerObject.GetComponent <GameController> ();
 		}
-
+		//if it can't find it, nor can it forcefully grab it, it lets you know
 		if (gameController == null) {
 
 			Debug.Log ("cannot find 'GameController' script");
@@ -53,7 +53,7 @@ public class HealthSystem : MonoBehaviour {
 	}
 
 	void Update () {
-
+		//determines the duration and color change of invincibility
 		timePassed += Time.deltaTime;
 		if (timePassed > invTime) {
 
@@ -104,12 +104,12 @@ public class HealthSystem : MonoBehaviour {
 			currentHealth -= damageAmount;
 		}
 	}
-
+	//self explanatory
 	public void GiveLife () {
 
 		lifeCounter++;
 	}
-
+	//self explanatory
 	public void TakeLife () {
 
 		lifeCounter--;

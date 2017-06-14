@@ -27,6 +27,8 @@ public class WeaponSystem : MonoBehaviour {
 	private float upgradeTime = 10;
 	private float timePassed;
 
+	public GameObject upgradeImage;
+
 	void Update () {
 
 		if (weaponUpgrades >= 5) {
@@ -82,14 +84,28 @@ public class WeaponSystem : MonoBehaviour {
 				GO2.GetComponent<Rigidbody> ().AddForce (shotSpawn.transform.forward * bulletSpeed, ForceMode.Impulse);
 			}
 			//fires weapons with 2nd upgrade (on angles)
-			if (weaponUpgrades == 5) {
+			if (weaponUpgrades == 4) {
 				GameObject GO3 = Instantiate (shot, shotSpawnL.position, transform.rotation) as GameObject;
 				GO3.GetComponent<Rigidbody> ().AddForce (shotSpawnL.transform.forward * bulletSpeed, ForceMode.Impulse);
 				GameObject GO4 = Instantiate (shot, shotSpawnR.position, transform.rotation) as GameObject;
 				GO4.GetComponent<Rigidbody> ().AddForce (shotSpawnR.transform.forward * bulletSpeed, ForceMode.Impulse);
 			}
 		}
+		//updates the weapon bar at the bottom of the screen to allow the player to keep track of what weapons are being used, and how many upgrades they have
+		if (weaponUpgrades == 1) {
+			upgradeImage.transform.localPosition = new Vector3 (-170, -1292, 0);
+		}
+		if (weaponUpgrades == 2) {
+			upgradeImage.transform.localPosition = new Vector3 (-68, -1292, 0);
+		}
+		if (weaponUpgrades == 3) {
+			upgradeImage.transform.localPosition = new Vector3 (51, -1292, 0);
+		}
+		if (weaponUpgrades == 4) {
+			upgradeImage.transform.localPosition = new Vector3 (165, -1292, 0);
+		}
 	}
+	//the functions below are rather self explanatory
 	public void GiveUpgrade () {
 
 		weaponUpgrades++;

@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour {
 	private float targetManeuver;
 
 	void Start () {
-		
+		//taken directly from the tutorial
 		InvokeRepeating ("Fire", delay, fireRate);
 		currentSpeed = GetComponent<Rigidbody>().velocity.z;
 		StartCoroutine(Evade());
@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	IEnumerator Evade () {
-		//enemies wait enough time in order to bank left or right into the player
+		//enemies wait enough time in order to bank left or right into the player, taken directly from the tutorial
 		yield return new WaitForSeconds (Random.Range (startWait.x, startWait.y));
 		while (true) {
 			
@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour {
 			yield return new WaitForSeconds (Random.Range (maneuverWait.x, maneuverWait.y));
 		}
 	}
-	//if the player moves to the other side of the enemy, the enemy resumes flying straight
+	//if the player moves to the other side of the enemy, the enemy resumes flying straight, taken directly from the tutorial
 	void FixedUpdate () {
 		float newManeuver = Mathf.MoveTowards (GetComponent<Rigidbody>().velocity.x, targetManeuver, smoothing * Time.deltaTime);
 		GetComponent<Rigidbody>().velocity = new Vector3 (newManeuver, 0.0f, currentSpeed);

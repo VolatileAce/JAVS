@@ -23,10 +23,10 @@ public class GameController : MonoBehaviour {
 	private bool restart;
 	public static int score;
 
-	public GameObject weaponSystem;
+	private GameObject weaponSystem;
 
 	void Start () {
-
+		//finds the weapon system on the player
 		weaponSystem = GameObject.FindGameObjectWithTag ("Player");
 
 		gameOver = false;

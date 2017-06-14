@@ -9,9 +9,9 @@ public class HealthPack : MonoBehaviour {
 	private GameController gameController;
 
 	void Start () {
-
+		//finds the game controller
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-
+		//forcefully grabs the game controller if it can't normally find it
 		if (gameControllerObject != null) {
 
 			gameController = gameControllerObject.GetComponent <GameController> ();

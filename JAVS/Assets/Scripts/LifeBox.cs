@@ -5,7 +5,7 @@ using UnityEngine;
 public class LifeBox : MonoBehaviour {
 
 	void OnTriggerExit (Collider other) {
-		//destroys all objects that exit the trigger area
+		//This is taken directly from the tutorial, there isn't exactly much to change
 		Destroy (other.gameObject);
 	}
 }

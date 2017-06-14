@@ -47,17 +47,17 @@ public class EnemyController : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 
 		if (other.gameObject.tag == "Player") {
-
+			//destroy itself upon hitting the player
 			Destroy(gameObject);
 		}
 
 		if (other.gameObject.tag == "Bullet") {
-
+			//ignore friendly bullets
 			return;
 		}
 
 		if (other.gameObject.tag == "Boundary") {
-
+			//ignore the lifebox
 			return;
 		}
 	}

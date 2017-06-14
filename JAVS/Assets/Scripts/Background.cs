@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Background : MonoBehaviour {
-	
+
+	//This script was taken directly from the tutorial, there really isnt anything to change in script, all the variables are public
+
 	public float scrollSpeed;
 	public float tileSizeZ;
 

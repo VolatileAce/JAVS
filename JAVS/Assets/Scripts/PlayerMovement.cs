@@ -10,6 +10,8 @@ public class Boundary {
 
 public class PlayerMovement : MonoBehaviour {
 
+	//this was taken directly from a tutorial
+
 	public float speed;
 	public float tilt;
 
@@ -22,7 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 		GetComponent<Rigidbody>().velocity = movement * speed;
-
+		//limits the players movement to within the boundary
 		GetComponent<Rigidbody>().position = new Vector3
 			(Mathf.Clamp (GetComponent<Rigidbody>().position.x, boundary.xMin, boundary.xMax), 
 				0.0f, 
@@ -31,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 		GetComponent<Rigidbody>().rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
 	}
 	void OnTriggerEnter (Collider other) {
-		
+		//ignores the boundary so the player doesnt just immediately die
 		if (other.gameObject.tag == "Boundary") {
 
 			return;

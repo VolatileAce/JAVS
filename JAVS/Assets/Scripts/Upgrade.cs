@@ -9,9 +9,9 @@ public class Upgrade : MonoBehaviour {
 	private GameController gameController;
 
 	void Start () {
-
+		//finds the game controller
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
-
+		//forceably g
 		if (gameControllerObject != null) {
 
 			gameController = gameControllerObject.GetComponent <GameController> ();
